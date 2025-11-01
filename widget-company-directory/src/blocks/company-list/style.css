@@ -1,0 +1,101 @@
+/**
+ * Frontend styles for the Company List block
+ */
+
+.wp-block-widget-directory-company-list {
+	margin: 2rem 0;
+}
+
+/* TODO: Add your company list styles here */
+.company-item {
+	margin-bottom: 2rem;
+	padding: 1.5rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.company-item h3 {
+	margin-top: 0;
+}
+
+.company-rating {
+	color: #f39c12;
+	font-weight: bold;
+}
+
+.free-trial-badge {
+	display: inline-block;
+	padding: 0.25rem 0.75rem;
+	background: #27ae60;
+	color: white;
+	border-radius: 3px;
+	font-size: 0.875rem;
+	margin-left: 0.5rem;
+}
+
+.company-benefits,
+.company-cons {
+	margin: 1rem 0;
+}
+
+.company-benefits ul,
+.company-cons ul {
+	margin: 0.5rem 0;
+	padding-left: 1.5rem;
+}
+.widget-company-list {
+    margin: 2rem 0;
+    padding: 1rem;
+}
+
+.company-list-title {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.company-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.company-card {
+    padding: 1.2rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background: #fff;
+}
+
+.company-name {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.free-trial-badge {
+    background: #2ecc71;
+    color: white;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.company-rating {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+.company-summary {
+    margin: 0.5rem 0 1rem;
+    color: #555;
+}
+
+.company-benefits, .company-cons {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
