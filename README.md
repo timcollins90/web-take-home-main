@@ -1,17 +1,12 @@
-# Widget Company Directory Plugin 
-
-**Time Limit:** 60 minutes
+# Widget Company Directory Plugin
 
 ## Overview
 
 WordPress plugin that manages a directory of widget companies and allows editors to create curated, sorted "Recommended Lists" for frontend display.
 
-### Scenario
+### Description 
 
-You're building a directory of 20 widget companies. Non-technical editors need to:
-- View and edit company information
-- Create "Recommended Lists" - curated, sorted subsets of companies
-- Display these lists on frontend pages
+Directory plugin designed for ease of use by non-technical editors, offering a simple and intuitive interface to view and edit company details. Users can build curated “Recommended Lists” by selecting and ranking specific companies, then easily display these customized lists on frontend pages for visitors to explore.
 
 ## Getting Started (Detailed)
 
@@ -68,6 +63,7 @@ You're building a directory of 20 widget companies. Non-technical editors need t
 7. Company data is provided in the `data/` folder (both JSON and CSV formats)
 
 
+
 ## Evaluation Criteria
 
 
@@ -93,8 +89,7 @@ One tradeoff I made was choosing not to use plugins, even though some may have p
 
 
 
-
-
+## Project Structure
 
 ```
 web-take-home/
@@ -107,7 +102,7 @@ web-take-home/
 │   │   ├── blocks/
 │   │   │   └── company-list/      # Gutenberg block (starter)
 │   │   │       ├── block.json
-│   │   │       ├── index.js
+│   │   │       ├── edit.js
 │   │   │       ├── editor.css
 │   │   │       └── style.css
 │   │   └── index.js
