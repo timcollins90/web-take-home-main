@@ -1,0 +1,127 @@
+/*!****************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/blocks/company-list/editor.css ***!
+  \****************************************************************************************************************************************************************************************/
+/**
+ * Editor styles for the Company List block
+ */
+
+.company-list-placeholder {
+	padding: 2rem;
+	background: #f0f0f1;
+	border: 1px dashed #c3c4c7;
+	border-radius: 4px;
+	text-align: center;
+}
+
+.company-list-placeholder h3 {
+	margin-top: 0;
+	color: #1e1e1e;
+}
+
+.company-list-placeholder p {
+	color: #757575;
+	margin: 0.5rem 0;
+}
+
+.widget-company-list {
+	padding: 20px;
+	margin: 20px 0;
+	background: #fff;
+	border-radius: 8px;
+}
+
+.company-list-title {
+	text-align: center;
+	margin-bottom: 20px;
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: #333;
+}
+
+.company-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+}
+
+.company-card {
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	padding: 16px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+	background: #fafafa;
+	transition: transform 0.2s ease;
+}
+
+.company-card:hover {
+	transform: translateY(-4px);
+}
+
+.company-logo {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+	border-radius: 6px;
+}
+
+.company-title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+	font-size: 1.2rem;
+}
+
+.company-title a {
+	text-decoration: none;
+	color: #333;
+}
+
+.free-trial-badge {
+	background: #4caf50;
+	color: #fff;
+	font-size: 0.7rem;
+	padding: 3px 6px;
+	border-radius: 4px;
+	text-transform: uppercase;
+	margin-left: 6px;
+}
+
+.company-rating {
+	color: #ff9800;
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+
+.company-summary {
+	color: #666;
+	margin-bottom: 12px;
+}
+
+.company-benefits, .company-cons {
+	margin-bottom: 10px;
+}
+
+.company-benefits ul, .company-cons ul {
+	margin: 6px 0 0 16px;
+	padding: 0;
+}
+
+.company-benefits li, .company-cons li {
+	margin-bottom: 4px;
+}
+p.company-summary {
+	font-size: 11px;
+}
+.company-benefits ul li {
+    font-size: 11px;
+}
+.company-cons ul li {
+    font-size: 11px;
+}
+.widget-company-list {
+    width: 1236px!important;
+    margin: 0 auto;
+}
+/*# sourceMappingURL=index.css.map*/
