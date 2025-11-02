@@ -59,9 +59,8 @@ Directory plugin designed for ease of use by non-technical editors, offering a s
      - Username: `admin`
      - Password: `password`
 
-6. The plugin is located at `widget-company-directory/`
-7. Company data is provided in the `data/` folder (both JSON and CSV formats)
-
+6. Activate Widget Company CPT and Widget Company Import Plugin
+7. Import companies by going to Tools->Import Companies click "Start Import" button
 
 
 ## Evaluation Criteria
