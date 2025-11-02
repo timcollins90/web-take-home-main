@@ -1,99 +1,10 @@
-# Widget Company Directory Plugin - Take-Home Assessment
+# Widget Company Directory Plugin 
 
 **Time Limit:** 60 minutes
 
-Hello! The Take Home test requirements will be sent in a separate markdown file.
-
----
-
-## 🚀 Quick Setup Instructions
-
-Get started in 3 minutes:
-
-### 1. Install Dependencies
-```bash
-npm i
-# OR 
-npm setup #from the root to install and build everything in one go
-```
-
-### 2. Start WordPress Environment
-```bash
-npm run env:start 
-# OR
-wp-env start #if globally installed
-```
-
-This uses [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) to automatically:
-- Download and configure WordPress 6.7
-- Start Docker containers
-- Install and activate your plugin
-- Set up the database
-
-**First time will take 1-2 minutes. Subsequent starts are much faster.**
-
-### 3. (If you haven't already) Build the Gutenberg Block
-Open a new terminal window:
-
-```bash
-cd widget-company-directory
-npm install
-npm run build
-```
-
-For development with live reload:
-```bash
-npm run start
-```
-
-### 4. Access WordPress
-- **Site:** http://localhost:8888
-- **Admin:** http://localhost:8888/wp-admin
-  - Username: `admin`
-  - Password: `password`
-
-### 5. Verify Setup
-1. Go to http://localhost:8888/wp-admin/plugins.php
-2. Confirm "Widget Company Directory" is activated
-3. Create a new post or page
-4. Click the "+" icon to add a block
-5. Search for "Company List" - you should see a starter block!
-
-**You're ready to code!** The plugin is at `widget-company-directory/` and company data is in `data/`.
-
-### 6. Stop the Environment (When Done)
-```bash
-npm run env:stop
-```
-
-To completely remove everything and start fresh:
-```bash
-npm run env:destroy
-```
-
-### Troubleshooting
-
-**Docker not running?**
-- Make sure Docker Desktop is running before `npm run env:start`
-
-**Port 8888 already in use?**
-- Stop other services using port 8888, or modify `.wp-env.json`
-
-**Block not appearing?**
-- Make sure you ran `npm run build` in the `widget-company-directory` folder
-- Check browser console for JavaScript errors
-- Try clearing your browser cache
-
-**WordPress not loading?**
-- Wait 1-2 minutes on first start (WordPress needs to install)
-- Check Docker containers: `docker ps`
-- View logs: `wp-env logs`
-
----
-
 ## Overview
 
-Build a WordPress plugin that manages a directory of widget companies and allows editors to create curated, sorted "Recommended Lists" for frontend display.
+WordPress plugin that manages a directory of widget companies and allows editors to create curated, sorted "Recommended Lists" for frontend display.
 
 ### Scenario
 
@@ -156,72 +67,34 @@ You're building a directory of 20 widget companies. Non-technical editors need t
 6. The plugin is located at `widget-company-directory/`
 7. Company data is provided in the `data/` folder (both JSON and CSV formats)
 
-## Requirements
-
-### 1. Data Import (10-15 min)
-
-- Import the provided 20 companies from the `data/` folder
-- Choose: JSON, CSV, or both - **document your decision**
-- Method is up to you: admin page, WP-CLI command, migration script, etc.
-- The import should be repeatable and documented
-
-### 2. Admin Interface (20-25 min)
-
-- View and edit existing companies
-- Create and manage "Recommended Lists" with custom sort order
-- **Design decision:** How should editors curate and sort lists? Document your UX choice
-- Leave a comment/note explaining how to add NEW companies (don't build full CRUD)
-
-### 3. Frontend Display (20-25 min)
-
-- Display a curated list on the frontend
-- Choose your implementation: Gutenberg block, shortcode, template function, or ACF block
-- Display for each company:
-  - Name
-  - Rating
-  - Benefits
-  - Cons
-  - Free Trial badge
-  - Summary
-
-### 4. Documentation (5 min)
-
-Update this README with:
-- Your import process and rationale
-- How editors use the system
-- Your architecture decisions (storage, data modeling, etc.)
-- How to add new companies to the system
-- Any tradeoffs you made
-
-## Data Structure
-
-Each of the 20 companies has the following attributes:
-
-- **Name** (string)
-- **Rating** (integer, 1-10)
-- **Benefits** (array of 3 strings)
-- **Cons** (array of 3 strings)
-- **Has Free Trial** (boolean)
-- **Summary** (text, ~100 words)
-
-## Technical Choices
-
-You decide:
-- ACF or Gutenberg blocks?
-- Custom Post Type, custom tables, or options?
-- How to store and manage curated lists?
-- What import mechanism to use?
-
-**Document your tradeoffs** - we want to see your decision-making process, not perfection.
 
 ## Evaluation Criteria
 
-- **Architecture:** Storage choices, data modeling, scalability considerations
-- **Editor UX:** How intuitive is the list curation experience?
-- **Code Quality:** Readable, organized, follows WordPress coding standards
-- **Completeness:** Does it work end-to-end?
 
-## Project Structure
+### Import Process
+
+I implemented the data import using the JSON file because it offered an easy-to-parse format compared to CSV. The import was handled through a custom PHP script that programmatically creates “company” posts using the WordPress wp_insert_post function. Admin users can navigate to Tools → Import Companies and click the ;Start Import; button to trigger an import from the predefined data/companies_json.json file, making the process fully repeatable. This approach could be improved in the future by allowing users to upload their own JSON file directly from the admin screen.
+
+### Architecture Decisions
+
+For data storage, I chose to use a custom post type system for companies, with key custom meta fields rating, benefits, cons, and free trial stored as custom post meta. This setup keeps each company self-contained and easily queryable, while leveraging WordPress’ REST API and editor interface. For list management, I implemented a custom Gutenberg block that allows content editors to create company lists by choosing from existing company posts. On the frontend, I used a dynamic PHP render callback to display each selected company's full details.
+
+### Editor Workflow
+
+To create and manage recommended company lists, editors can simply add the "Company List" Gutenberg block to any post or page in the WordPress editor. Within the block sidebar, they can select a company from a dropdown menu, and add them to the list with one click. They can also edit the list title directly in the block and reorder or remove companies as needed. Once published, the selected companies are automatically displayed on the frontend 
+
+### How to Add New Companies and the Block
+
+To add new companies to the directory, editors can navigate to the Companies post type in the WordPress admin menu and click "Add New". From there, they enter the company information just like a regular post. Once the company is published, it becomes available in the Company List block dropdown.
+
+### Tradeoffs and Considerations
+
+One tradeoff I made was choosing not to use plugins, even though some may have provided similar functionality. This decision saved time that would have otherwise gone into learning and customizing a bloated plugin for what was a simple and focused task. Due to time constraints, I also relied on AI to move quickly. With more time, I would review the code more thoroughly to remove redundancies, ensure best practices, and verify that every piece of logic is necessary and optimized. I would also add features like company categorization or tagging, improve the import interface with progress feedback, and enhance the frontend UI with search, filtering, or comparison tools to give visitors more ways to explore the directory.
+
+
+
+
+
 
 ```
 web-take-home/
